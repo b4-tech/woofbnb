@@ -7,18 +7,23 @@ export default async function getFavoriteListings() {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
-      throw new Error('Unauthorized');
+      throw new Error("Unauthorized");
     }
 
     const favorites = await prisma.listing.findMany({
       where: {
         id: {
-          in: [...(currentUser.favoriteIds || [])]
-        }
-      }
+          in: [...(currentUser.favoriteIds || [])],
+        },
+      },
     });
 
-    return favorites;
+    const safeFavorites = favorites.map((favorite: any) => ({
+      ...favorite,
+      createdAt: favorite.createdAt.toString(),
+    }));
+
+    return safeFavorites;
   } catch (error: any) {
     throw new Error(error);
   }

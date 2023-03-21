@@ -1,6 +1,5 @@
-"use client";
+'use client';
 
-import { Reservation, User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
@@ -8,44 +7,44 @@ import { toast } from "react-hot-toast";
 
 import Heading from "@/app/common/components/Heading";
 import Container from "@/app/common/components/layout/Container";
-import ListingCard from "@/app/common/components/listing/ListingCard";
+import ListingCard from "@/app/common/components/listings/ListingCard";
+import { SafeReservation, SafeUser } from "@/app/common/types";
 
 interface ReservationsClientProps {
-  reservations: Reservation[];
-  currentUser?: User | null;
+  reservations: SafeReservation[],
+  currentUser?: SafeUser | null,
 }
 
 const ReservationsClient: React.FC<ReservationsClientProps> = ({
   reservations,
-  currentUser,
+  currentUser
 }) => {
   const router = useRouter();
-  const [deletingId, setDeletingId] = useState("");
+  const [deletingId, setDeletingId] = useState('');
 
-  const onCancel = useCallback(
-    (id: string) => {
-      setDeletingId(id);
+  const onCancel = useCallback((id: string) => {
+    setDeletingId(id);
 
-      axios
-        .delete(`/api/reservations/${id}`)
-        .then(() => {
-          toast.success("Reservation cancelled");
-          router.refresh();
-        })
-        .catch(() => {
-          toast.error("Something went wrong.");
-        })
-        .finally(() => {
-          setDeletingId("");
-        });
-    },
-    [router]
-  );
+    axios.delete(`/api/reservations/${id}`)
+    .then(() => {
+      toast.success('Reservation cancelled');
+      router.refresh();
+    })
+    .catch(() => {
+      toast.error('Something went wrong.')
+    })
+    .finally(() => {
+      setDeletingId('');
+    })
+  }, [router]);
 
   return (
     <Container>
-      <Heading title="Reservations" subtitle="Bookings on your properties" />
-      <div
+      <Heading
+        title="Reservations"
+        subtitle="Bookings on your properties"
+      />
+      <div 
         className="
           mt-10
           grid 
@@ -72,7 +71,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
         ))}
       </div>
     </Container>
-  );
-};
-
+   );
+}
+ 
 export default ReservationsClient;

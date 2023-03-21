@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { User } from "@prisma/client";
 import Image from "next/image";
 
-import useCountries from "../hooks/useCountries";
+import useCountries from "@/app/common/hooks/useCountries";
+import { SafeUser } from "@/app/common/types";
 
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
@@ -13,7 +13,7 @@ interface ListingHeadProps {
   locationValue: string;
   imageSrc: string;
   id: string;
-  currentUser?: User | null;
+  currentUser?: SafeUser | null
 }
 
 const ListingHead: React.FC<ListingHeadProps> = ({
@@ -21,20 +21,19 @@ const ListingHead: React.FC<ListingHeadProps> = ({
   locationValue,
   imageSrc,
   id,
-  currentUser,
+  currentUser
 }) => {
   const { getByValue } = useCountries();
 
   const location = getByValue(locationValue);
 
-  return (
+  return ( 
     <>
       <Heading
         title={title}
         subtitle={`${location?.region}, ${location?.label}`}
       />
-      <div
-        className="
+      <div className="
           w-full
           h-[60vh]
           overflow-hidden 
@@ -55,11 +54,14 @@ const ListingHead: React.FC<ListingHeadProps> = ({
             right-5
           "
         >
-          <HeartButton listingId={id} currentUser={currentUser} />
+          <HeartButton 
+            listingId={id}
+            currentUser={currentUser}
+          />
         </div>
       </div>
     </>
-  );
-};
-
+   );
+}
+ 
 export default ListingHead;

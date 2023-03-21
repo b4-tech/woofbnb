@@ -1,6 +1,5 @@
 "use client";
 
-import { Listing, Reservation, User } from "@prisma/client";
 import axios from "axios";
 import { differenceInDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
@@ -9,12 +8,13 @@ import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 
 import useLoginModal from "@/app/common/hooks/useLoginModal";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/common/types";
 
 import { categories } from "@/app/common/components/layout/Categories";
 import Container from "@/app/common/components/layout/Container";
-import ListingHead from "@/app/common/components/listing/ListingHead";
-import ListingInfo from "@/app/common/components/listing/ListingInfo";
-import ListingReservation from "@/app/common/components/listing/ListingReservation";
+import ListingHead from "@/app/common/components/listings/ListingHead";
+import ListingInfo from "@/app/common/components/listings/ListingInfo";
+import ListingReservation from "@/app/common/components/listings/ListingReservation";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -23,11 +23,11 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
-  listing: Listing & {
-    user: User;
+  reservations?: SafeReservation[];
+  listing: SafeListing & {
+    user: SafeUser;
   };
-  currentUser?: User;
+  currentUser?: SafeUser | null;
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
@@ -77,8 +77,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
       .then(() => {
         toast.success("Listing reserved!");
         setDateRange(initialDateRange);
-        // mutateListing();
-        // mutateReservations();
         router.push("/trips");
       })
       .catch(() => {
@@ -148,7 +146,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}
-                onChangeDate={(value) => setDateRange(value)}
+                onChangeDate={(value: any) => setDateRange(value)}
                 dateRange={dateRange}
                 onSubmit={onCreateReservation}
                 disabled={isLoading}

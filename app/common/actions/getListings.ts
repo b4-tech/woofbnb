@@ -83,7 +83,10 @@ export default async function getListings(params: IListingsParams) {
       },
     });
 
-    return listings;
+    const safeListings = listings.map((listing: any) => ({
+      ...listing,
+      createdAt: listing.createdAt.toISOString(),
+    }));
   } catch (error: any) {
     throw new Error(error);
   }

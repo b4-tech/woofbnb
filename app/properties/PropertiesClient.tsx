@@ -1,51 +1,52 @@
-"use client";
+'use client';
 
-import { Listing, User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
+import { SafeListing, SafeUser } from "@/app/common/types";
+
 import Heading from "@/app/common/components/Heading";
 import Container from "@/app/common/components/layout/Container";
-import ListingCard from "@/app/common/components/listing/ListingCard";
+import ListingCard from "@/app/common/components/listings/ListingCard";
 
 interface PropertiesClientProps {
-  listings: Listing[];
-  currentUser?: User | null;
+  listings: SafeListing[],
+  currentUser?: SafeUser | null,
 }
 
 const PropertiesClient: React.FC<PropertiesClientProps> = ({
   listings,
-  currentUser,
+  currentUser
 }) => {
   const router = useRouter();
-  const [deletingId, setDeletingId] = useState("");
+  const [deletingId, setDeletingId] = useState('');
 
-  const onDelete = useCallback(
-    (id: string) => {
-      setDeletingId(id);
+  const onDelete = useCallback((id: string) => {
+    setDeletingId(id);
 
-      axios
-        .delete(`/api/listings/${id}`)
-        .then(() => {
-          toast.success("Listing deleted");
-          router.refresh();
-        })
-        .catch((error) => {
-          toast.error(error?.response?.data?.error);
-        })
-        .finally(() => {
-          setDeletingId("");
-        });
-    },
-    [router]
-  );
+    axios.delete(`/api/listings/${id}`)
+    .then(() => {
+      toast.success('Listing deleted');
+      router.refresh();
+    })
+    .catch((error) => {
+      toast.error(error?.response?.data?.error)
+    })
+    .finally(() => {
+      setDeletingId('');
+    })
+  }, [router]);
 
-  return (
+
+  return ( 
     <Container>
-      <Heading title="Properties" subtitle="List of your properties" />
-      <div
+      <Heading
+        title="Properties"
+        subtitle="List of your properties"
+      />
+      <div 
         className="
           mt-10
           grid 
@@ -71,7 +72,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
         ))}
       </div>
     </Container>
-  );
-};
-
+   );
+}
+ 
 export default PropertiesClient;

@@ -1,46 +1,43 @@
-"use client";
+'use client';
 
-import { Reservation, User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
+import { SafeReservation, SafeUser } from "@/app/common/types";
+
 import Heading from "@/app/common/components/Heading";
 import Container from "@/app/common/components/layout/Container";
-import ListingCard from "@/app/common/components/listing/ListingCard";
+import ListingCard from "@/app/common/components/listings/ListingCard";
 
 interface TripsClientProps {
-  reservations: Reservation[];
-  currentUser?: User | null;
+  reservations: SafeReservation[],
+  currentUser?: SafeUser | null,
 }
 
 const TripsClient: React.FC<TripsClientProps> = ({
   reservations,
-  currentUser,
+  currentUser
 }) => {
   const router = useRouter();
-  const [deletingId, setDeletingId] = useState("");
+  const [deletingId, setDeletingId] = useState('');
 
-  const onCancel = useCallback(
-    (id: string) => {
-      setDeletingId(id);
+  const onCancel = useCallback((id: string) => {
+    setDeletingId(id);
 
-      axios
-        .delete(`/api/reservations/${id}`)
-        .then(() => {
-          toast.success("Reservation cancelled");
-          router.refresh();
-        })
-        .catch((error) => {
-          toast.error(error?.response?.data?.error);
-        })
-        .finally(() => {
-          setDeletingId("");
-        });
-    },
-    [router]
-  );
+    axios.delete(`/api/reservations/${id}`)
+    .then(() => {
+      toast.success('Reservation cancelled');
+      router.refresh();
+    })
+    .catch((error) => {
+      toast.error(error?.response?.data?.error)
+    })
+    .finally(() => {
+      setDeletingId('');
+    })
+  }, [router]);
 
   return (
     <Container>
@@ -48,7 +45,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
         title="Trips"
         subtitle="Where you've been and where you're going"
       />
-      <div
+      <div 
         className="
           mt-10
           grid 
@@ -75,7 +72,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
         ))}
       </div>
     </Container>
-  );
-};
-
+   );
+}
+ 
 export default TripsClient;
