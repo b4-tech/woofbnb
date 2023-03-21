@@ -1,20 +1,21 @@
 import prisma from "@/libs/prismadb";
-import { User } from "@prisma/client";
 
-interface IParams {
-  currentUser: User;
-}
+import getCurrentUser from "./getCurrentUser";
 
-export default async function getFavoriteListings(params: IParams) {
+export default async function getFavoriteListings() {
   try {
-    const { currentUser } = params;
+    const currentUser = await getCurrentUser();
+
+    if (!currentUser) {
+      throw new Error('Unauthorized');
+    }
 
     const favorites = await prisma.listing.findMany({
       where: {
         id: {
-          in: [...(currentUser.favoriteIds || [])],
-        },
-      },
+          in: [...(currentUser.favoriteIds || [])]
+        }
+      }
     });
 
     return favorites;
