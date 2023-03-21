@@ -6,7 +6,7 @@ import RentModal from "@/app/common/components/modals/RentModal";
 import SearchModal from "@/app/common/components/modals/SearchModal";
 import Navbar from "@/app/components/layout/Navbar";
 
-import ToasterServer from "./common/components/ToasterServer";
+import ToasterProvider from "./common/components/ToasterProvider";
 import "./globals.css";
 
 export const metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ToasterServer />
+        <ToasterProvider />
         <LoginModal />
         <RegisterModal />
         <SearchModal />
