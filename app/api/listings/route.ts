@@ -3,13 +3,6 @@ import { NextResponse } from "next/server";
 import getCurrentUser from "@/app/common/actions/getCurrentUser";
 import prisma from "@/libs/prismadb";
 
-const errorsMap: any = {
-  imageSrc: "Image",
-  roomCount: "Rooms count",
-  guestsCount: "Guests count",
-  bahtroomCount: "Bathroom count",
-};
-
 export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
 
