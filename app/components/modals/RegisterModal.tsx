@@ -1,19 +1,20 @@
 "use client";
 
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
+
+import useLoginModal from "../hooks/useLoginModal";
+import useRegisterModal from "../hooks/useRegisterModal";
 
 import Button from "../Button";
 import Heading from "../Heading";
-import Modal from "../Modal";
-import useLoginModal from "../hooks/useLoginModal";
-import useRegisterModal from "../hooks/useRegisterModal";
 import Input from "../inputs/Input";
+import Modal from "./Modal";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -93,13 +94,13 @@ const RegisterModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        // onClick={() => signIn('google')}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        // onClick={() => signIn('github')}
+        onClick={() => signIn("github")}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <p>

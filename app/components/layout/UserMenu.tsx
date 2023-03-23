@@ -2,22 +2,21 @@
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-// import { signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import useLoginModal from "../hooks/useLoginModal";
 import useRegisterModal from "../hooks/useRegisterModal";
-// import useCurrentUser from "../hooks/useCurrentUser";
+import useCurrentUser from "../hooks/useCurrentUser";
 import useRentModal from "../hooks/useRentModal";
 
-import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import Avatar from "../Avatar";
 
 const UserMenu = () => {
   const router = useRouter();
 
-  // const { data: currentUser } = useCurrentUser();
-  const currentUser = null;
+  const { data: currentUser } = useCurrentUser();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
@@ -116,10 +115,7 @@ const UserMenu = () => {
                 />
                 <MenuItem label="Airbnb your home" onClick={rentModal.onOpen} />
                 <hr />
-                <MenuItem
-                  label="Logout"
-                  // onClick={() => signOut()}
-                />
+                <MenuItem label="Logout" onClick={() => signOut()} />
               </>
             ) : (
               <>
