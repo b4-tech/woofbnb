@@ -1,26 +1,26 @@
-import { Nunito } from 'next/font/google';
+import { Nunito } from "next/font/google";
 
-import Navbar from '@/app/components/layout/Navbar';
-import LoginModal from '@/app/components/modals/LoginModal';
-import RegisterModal from '@/app/components/modals/RegisterModal';
-import RentModal from '@/app/components/modals/RentModal';
-import SearchModal from '@/app/components/modals/SearchModal';
+import LoginModal from "@/app/common/components/modals/LoginModal";
+import RegisterModal from "@/app/common/components/modals/RegisterModal";
+import RentModal from "@/app/common/components/modals/RentModal";
+import SearchModal from "@/app/common/components/modals/SearchModal";
+import Navbar from "@/app/components/layout/Navbar";
 
-import './globals.css';
+import "./globals.css";
 
 export const metadata = {
-  title: 'Airbnb',
-  description: 'Airbnb Clone',
-}
+  title: "Airbnb",
+  description: "Airbnb Clone",
+};
 
-const font = Nunito({ 
-  subsets: ['latin'], 
+const font = Nunito({
+  subsets: ["latin"],
 });
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -33,5 +33,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }

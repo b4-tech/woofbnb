@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
-import Categories from "./Categories";
-import Container from "./Container";
-import Search from "./Search";
-import UserMenu from "./UserMenu";
+import Categories from "../../common/components/layout/Categories";
+import Container from "../../common/components/layout/Container";
+import Search from "../../common/components/layout/Search";
+import UserMenu from "../../common/components/layout/UserMenu";
 
 const Navbar = () => {
   const router = useRouter();
