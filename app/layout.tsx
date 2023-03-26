@@ -32,7 +32,7 @@ export default function RootLayout({
         <SearchModal />
         <RentModal />
         <Navbar />
-        {children}
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );
