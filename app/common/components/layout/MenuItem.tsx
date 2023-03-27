@@ -1,3 +1,5 @@
+'use client';
+
 import getCurrentUser from "@/app/common/actions/getCurrentUser";
 
 import Categories from "./Categories";
