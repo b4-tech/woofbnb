@@ -3,8 +3,8 @@
 import dynamic from "next/dynamic";
 import { IconType } from "react-icons";
 
-import useCountries from "@/app/common/hooks/useCountries";
 import { SafeUser } from "@/app/common/types";
+import useCountries from "../hooks/useCountries";
 
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
