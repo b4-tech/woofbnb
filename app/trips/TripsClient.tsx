@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeReservation, SafeUser } from "@/app/common/types";
+import { SafeReservation, SafeUser } from "@/app/types";
 
-import Heading from "@/app/common/components/Heading";
-import Container from "@/app/common/components/layout/Container";
 import ListingCard from "@/app/common/components/listings/ListingCard";
+import Heading from "@/app/components/Heading";
+import Container from "@/app/components/layout/Container";
 
 interface TripsClientProps {
   reservations: SafeReservation[],

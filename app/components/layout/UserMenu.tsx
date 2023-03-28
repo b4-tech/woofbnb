@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
-import { SafeUser } from "@/app/common/types";
-import useLoginModal from "../hooks/useLoginModal";
-import useRegisterModal from "../hooks/useRegisterModal";
-import useRentModal from "../hooks/useRentModal";
+import { SafeUser } from "@/app/types";
+import useLoginModal from "../../hooks/useLoginModal";
+import useRegisterModal from "../../hooks/useRegisterModal";
+import useRentModal from "../../hooks/useRentModal";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";

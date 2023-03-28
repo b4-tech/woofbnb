@@ -8,13 +8,13 @@ import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 
 import useLoginModal from "@/app/common/hooks/useLoginModal";
-import { SafeListing, SafeReservation, SafeUser } from "@/app/common/types";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
-import { categories } from "@/app/common/components/layout/Categories";
-import Container from "@/app/common/components/layout/Container";
 import ListingHead from "@/app/common/components/listings/ListingHead";
 import ListingInfo from "@/app/common/components/listings/ListingInfo";
 import ListingReservation from "@/app/common/components/listings/ListingReservation";
+import { categories } from "@/app/components/layout/Categories";
+import Container from "@/app/components/layout/Container";
 
 const initialDateRange = {
   startDate: new Date(),

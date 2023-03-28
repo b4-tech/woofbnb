@@ -1,8 +1,8 @@
-import getCurrentUser from "@/app/common/actions/getCurrentUser";
-import getListingById from "@/app/common/actions/getListingById";
-import getReservations from "@/app/common/actions/getReservations";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import getListingById from "@/app/actions/getListingById";
+import getReservations from "@/app/actions/getReservations";
 
-import EmptyState from "@/app/common/components/layout/EmptyState";
+import EmptyState from "@/app/components/layout/EmptyState";
 
 import ListingClient from "./ListingClient";
 

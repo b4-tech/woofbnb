@@ -1,6 +1,6 @@
 'use client';
 
-import getCurrentUser from "@/app/common/actions/getCurrentUser";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 import Categories from "./Categories";
 import Container from "./Container";

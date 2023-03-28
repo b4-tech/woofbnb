@@ -1,12 +1,12 @@
 import { Nunito } from "next/font/google";
 
-import LoginModal from "@/app/common/components/modals/LoginModal";
-import RegisterModal from "@/app/common/components/modals/RegisterModal";
-import RentModal from "@/app/common/components/modals/RentModal";
-import SearchModal from "@/app/common/components/modals/SearchModal";
 import Navbar from "@/app/components/layout/Navbar";
+import LoginModal from "@/app/components/modals/LoginModal";
+import RegisterModal from "@/app/components/modals/RegisterModal";
+import RentModal from "@/app/components/modals/RentModal";
+import SearchModal from "@/app/components/modals/SearchModal";
 
-import ToasterProvider from "./common/components/ToasterProvider";
+import ToasterProvider from "./components/ToasterProvider";
 import "./globals.css";
 
 export const metadata = {

@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import Heading from "@/app/common/components/Heading";
-import Container from "@/app/common/components/layout/Container";
 import ListingCard from "@/app/common/components/listings/ListingCard";
-import { SafeReservation, SafeUser } from "@/app/common/types";
+import Heading from "@/app/components/Heading";
+import Container from "@/app/components/layout/Container";
+import { SafeReservation, SafeUser } from "@/app/types";
 
 interface ReservationsClientProps {
   reservations: SafeReservation[],
