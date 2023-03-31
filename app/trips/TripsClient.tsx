@@ -8,8 +8,8 @@ import { toast } from "react-hot-toast";
 import { SafeReservation, SafeUser } from "@/app/types";
 
 import ListingCard from "@/app/common/components/listings/ListingCard";
+import Container from "@/app/components/Container";
 import Heading from "@/app/components/Heading";
-import Container from "@/app/components/layout/Container";
 
 interface TripsClientProps {
   reservations: SafeReservation[],

@@ -15,7 +15,7 @@ import Counter from "../inputs/Counter";
 import CountrySelect from "../inputs/CountrySelect";
 import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
-import { categories } from "../layout/Categories";
+import { categories } from "../navbar/Categories";
 import Modal from "./Modal";
 
 enum STEPS {

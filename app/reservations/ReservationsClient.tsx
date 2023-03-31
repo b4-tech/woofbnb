@@ -6,8 +6,8 @@ import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
 import ListingCard from "@/app/common/components/listings/ListingCard";
+import Container from "@/app/components/Container";
 import Heading from "@/app/components/Heading";
-import Container from "@/app/components/layout/Container";
 import { SafeReservation, SafeUser } from "@/app/types";
 
 interface ReservationsClientProps {

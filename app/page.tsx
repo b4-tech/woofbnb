@@ -1,7 +1,7 @@
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings, { IListingsParams } from "./actions/getListings";
 import ClientOnly from "./components/ClientOnly";
-import Container from "./components/layout/Container";
+import Container from "./components/Container";
 import EmptyState from "./components/layout/EmptyState";
 import ListingCard from "./components/listing/ListingCard";
 

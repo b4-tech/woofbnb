@@ -18,7 +18,7 @@ import { MdOutlineVilla } from "react-icons/md";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 
 import CategoryBox from "../CategoryBox";
-import Container from "./Container";
+import Container from "../Container";
 export const categories = [
   {
     label: "Beach",

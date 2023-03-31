@@ -13,8 +13,8 @@ import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import ListingHead from "@/app/common/components/listings/ListingHead";
 import ListingInfo from "@/app/common/components/listings/ListingInfo";
 import ListingReservation from "@/app/common/components/listings/ListingReservation";
-import { categories } from "@/app/components/layout/Categories";
-import Container from "@/app/components/layout/Container";
+import Container from "@/app/components/Container";
+import { categories } from "@/app/components/navbar/Categories";
 
 const initialDateRange = {
   startDate: new Date(),
