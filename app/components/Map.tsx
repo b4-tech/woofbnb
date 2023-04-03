@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import L from "leaflet";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
@@ -20,6 +20,10 @@ interface MapProps {
   center?: number[];
 }
 
+const url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+const attribution =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
 const Map: React.FC<MapProps> = ({ center }) => {
   return (
     <MapContainer
@@ -28,10 +32,7 @@ const Map: React.FC<MapProps> = ({ center }) => {
       scrollWheelZoom={false}
       className="h-[35vh] rounded-lg"
     >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer url={url} attribution={attribution} />
       {center && <Marker position={center as L.LatLngExpression} />}
     </MapContainer>
   );

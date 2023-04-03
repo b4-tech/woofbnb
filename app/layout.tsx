@@ -6,8 +6,8 @@ import RentModal from "@/app/components/modals/RentModal";
 import SearchModal from "@/app/components/modals/SearchModal";
 import Navbar from "@/app/components/navbar/Navbar";
 
-import ToasterProvider from "./components/ToasterProvider";
 import "./globals.css";
+import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata = {
   title: "Airbnb",
@@ -31,7 +31,7 @@ export default function RootLayout({
         <RegisterModal />
         <SearchModal />
         <RentModal />
-        <Navbar />
+        <Navbar/>
         <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>

@@ -1,25 +1,23 @@
 "use client";
 
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
-import useLoginModal from "../../hooks/useLoginModal";
-import useRegisterModal from "../../hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 import Button from "../Button";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Modal from "./Modal";
 
-import useCurrentUser from "../../../components/hooks/useCurrentUser";
-
 const LoginModal = () => {
-  const { mutate: mutateCurrentUser } = useCurrentUser();
-
+  const router = useRouter();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +44,7 @@ const LoginModal = () => {
 
       if (callback?.ok) {
         toast.success("Logged in");
-        mutateCurrentUser();
+        router.refresh();
         loginModal.onClose();
       }
 
@@ -99,9 +97,12 @@ const LoginModal = () => {
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
-      <div className="text-neutral-500 text-center mt-4 font-light">
+      <div
+        className="
+      text-neutral-500 text-center mt-4 font-light"
+      >
         <p>
-          First time using Airbnb?
+          First time using Woofbnb?
           <span
             onClick={onToggle}
             className="
