@@ -1,8 +1,8 @@
-# Woofbnb: A Full Stack Airbnb Clone
+# Woofbnb: A Full Stack Booking Site
 
-This is a repository for a Full Stack Airbnb Clone with Next.js 13. This application provides functionality and features like real Airbnb including booking system, authentication, image upload and advanced search.
+This is a repository for a Full Stack Booking Site with Next.js 13. This application provides functionality and features like real Airbnb including booking system, authentication, image upload and advanced search.
 
-![Demo](link_to_screenshot_or_demo_video)
+![Screen](/images/Screen.png)
 
 ## Technologies Used
 
